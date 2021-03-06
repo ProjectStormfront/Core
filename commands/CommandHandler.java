@@ -36,6 +36,7 @@ public abstract class CommandHandler implements CommandExecutor {
         new SpeedCommand();
         new HealCommand();
         new FeedCommand();
+        //
     }
 
     @Override

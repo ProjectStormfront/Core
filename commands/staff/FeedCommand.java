@@ -30,7 +30,7 @@ public class FeedCommand extends CommandHandler {
             }
             Player target = Bukkit.getPlayer(args[0]);
             target.setFoodLevel(20);
-            p.sendMessage(ChatColor.GREEN + "They have been fed.");
+            p.sendMessage(ChatColor.GREEN + "The person has been fed.");
         }
     }
 }

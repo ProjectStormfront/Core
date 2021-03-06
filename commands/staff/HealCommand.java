@@ -30,7 +30,7 @@ public class HealCommand extends CommandHandler {
             }
             Player target = Bukkit.getPlayer(args[0]);
             target.setHealth(20);
-            p.sendMessage(ChatColor.GREEN + "They have been healed.");
+            p.sendMessage(ChatColor.GREEN + "The person has been healed.");
         }
     }
 }
