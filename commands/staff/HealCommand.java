@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class HealCommand extends CommandHandler {
     public HealCommand() {
-        super("feed", "staff.feed", false);
+        super("heal", "staff.feed", false);
     }
 
     @Override

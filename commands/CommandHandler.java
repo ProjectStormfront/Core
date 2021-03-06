@@ -3,6 +3,8 @@ package core.deagan.core.commands;
 import core.deagan.core.Core;
 import core.deagan.core.commands.general.HelpCommand;
 import core.deagan.core.commands.staff.*;
+import core.deagan.core.commands.staff.troll.RotateHeadCommand;
+import core.deagan.core.commands.staff.troll.SudoCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -36,7 +38,8 @@ public abstract class CommandHandler implements CommandExecutor {
         new SpeedCommand();
         new HealCommand();
         new FeedCommand();
-        //
+        new RotateHeadCommand();
+        new SudoCommand();
     }
 
     @Override
