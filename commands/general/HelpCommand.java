@@ -22,6 +22,7 @@ public class HelpCommand extends CommandHandler {
                         ChatColor.RED + "/rotatehead - " + ChatColor.GRAY + "Rotate someone's head 180 degrees" + "\n" +
                         ChatColor.RED + "/sudo - " + ChatColor.GRAY + "Act as someone else using chat/commands" + "\n" +
                         ChatColor.translateAlternateColorCodes('&', "&c&m-------------------")
+                //
         );
     }
 }

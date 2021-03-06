@@ -40,6 +40,7 @@ public abstract class CommandHandler implements CommandExecutor {
         new FeedCommand();
         new RotateHeadCommand();
         new SudoCommand();
+        //
     }
 
     @Override

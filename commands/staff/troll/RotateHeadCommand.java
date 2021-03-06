@@ -26,5 +26,6 @@ public class RotateHeadCommand extends CommandHandler {
         Player target = Bukkit.getPlayer(args[0]);
         target.getLocation().setYaw(target.getLocation().getYaw() + 180);
         p.sendMessage(ChatColor.GREEN + "You have rotated the head 180 degrees.");
+        //
     }
 }
