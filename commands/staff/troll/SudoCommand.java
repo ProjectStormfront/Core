@@ -54,7 +54,6 @@ public class SudoCommand extends CommandHandler {
                 break;
             default:
                 p.sendMessage(ChatColor.RED + "Invalid Option. (chat/command)");
-                //
         }
     }
 }

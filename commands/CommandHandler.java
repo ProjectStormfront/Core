@@ -2,6 +2,8 @@ package core.deagan.core.commands;
 
 import core.deagan.core.Core;
 import core.deagan.core.commands.general.HelpCommand;
+import core.deagan.core.commands.general.NameMCCommand;
+import core.deagan.core.commands.general.SpawnCommand;
 import core.deagan.core.commands.staff.*;
 import core.deagan.core.commands.staff.troll.RotateHeadCommand;
 import core.deagan.core.commands.staff.troll.SudoCommand;
@@ -11,6 +13,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.net.MalformedURLException;
 
 public abstract class CommandHandler implements CommandExecutor {
     private final String commandName;
@@ -40,6 +44,10 @@ public abstract class CommandHandler implements CommandExecutor {
         new FeedCommand();
         new RotateHeadCommand();
         new SudoCommand();
+        new SetSpawnCommand();
+        new SpawnCommand();
+        new BroadcastCommand();
+        new NameMCCommand();
         //
     }
 
