@@ -34,6 +34,8 @@ public abstract class CommandHandler implements CommandExecutor {
         new StaffChatCommand();
         new FlyCommand();
         new SpeedCommand();
+        new HealCommand();
+        new FeedCommand();
     }
 
     @Override
