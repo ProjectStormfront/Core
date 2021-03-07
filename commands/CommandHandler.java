@@ -2,6 +2,7 @@ package core.deagan.core.commands;
 
 import core.deagan.core.Core;
 import core.deagan.core.commands.general.HelpCommand;
+import core.deagan.core.commands.general.LevelCommand;
 import core.deagan.core.commands.general.NameMCCommand;
 import core.deagan.core.commands.general.SpawnCommand;
 import core.deagan.core.commands.staff.*;
@@ -48,6 +49,8 @@ public abstract class CommandHandler implements CommandExecutor {
         new SpawnCommand();
         new BroadcastCommand();
         new NameMCCommand();
+        new LevelCommand();
+        new BanCommand();
         //
     }
 

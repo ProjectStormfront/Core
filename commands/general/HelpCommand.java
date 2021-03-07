@@ -23,8 +23,11 @@ public class HelpCommand extends CommandHandler {
                         ChatColor.RED + "/sudo - " + ChatColor.GRAY + "Act as someone else using chat/commands" + "\n" +
                         ChatColor.RED + "/setspawn - " + ChatColor.GRAY + "Set the spawn." + "\n" +
                         ChatColor.RED + "/spawn - " + ChatColor.GRAY + "Teleport to the spawn." + "\n" +
+                        ChatColor.RED + "/broadcast - " + ChatColor.GRAY + "Broadcast a message to the server." + "\n" +
+                        ChatColor.RED + "/namemc - " + ChatColor.GRAY + "Verify that you liked the server on NameMC" + "\n" +
+                        ChatColor.RED + "/level - " + ChatColor.GRAY + "Check your level." + "\n" +
+                        ChatColor.RED + "/ban - " + ChatColor.GRAY + "Ban a player with a reason." + "\n" +
                         ChatColor.translateAlternateColorCodes('&', "&c&m-------------------")
-                //
         );
     }
 }

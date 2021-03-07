@@ -17,7 +17,7 @@ public class BroadcastCommand extends CommandHandler {
             return;
         }
         StringBuilder messagebuilder = new StringBuilder();
-        for (int i = 1; i < args.length; i++) {
+        for (int i = 0; i < args.length; i++) {
             messagebuilder.append(args[i]).append(" ");
         }
         String commandMessage = messagebuilder.toString();

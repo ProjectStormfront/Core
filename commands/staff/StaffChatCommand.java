@@ -2,6 +2,7 @@ package core.deagan.core.commands.staff;
 
 import core.deagan.core.Core;
 import core.deagan.core.commands.CommandHandler;
+import core.deagan.core.managers.StaffManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

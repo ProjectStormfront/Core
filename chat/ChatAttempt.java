@@ -1,4 +1,4 @@
-package core.deagan.core.commands.chat;
+package core.deagan.core.chat;
 
 import lombok.Getter;
 import lombok.Setter;

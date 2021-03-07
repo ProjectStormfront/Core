@@ -3,8 +3,10 @@ package core.deagan.core.commands.staff.troll;
 import core.deagan.core.commands.CommandHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.util.Vector;
 
 public class RotateHeadCommand extends CommandHandler {
@@ -24,8 +26,9 @@ public class RotateHeadCommand extends CommandHandler {
             return;
         }
         Player target = Bukkit.getPlayer(args[0]);
-        target.getLocation().setYaw(target.getLocation().getYaw() + 180);
+        Location loc = target.getLocation();
+        loc.setYaw(loc.getYaw() + 180);
+        target.teleportAsync(loc, PlayerTeleportEvent.TeleportCause.COMMAND);
         p.sendMessage(ChatColor.GREEN + "You have rotated the head 180 degrees.");
-        //
     }
 }
