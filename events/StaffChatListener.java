@@ -15,10 +15,6 @@ public class StaffChatListener implements Listener {
     @EventHandler(priority = EventPriority.NORMAL)
     public void onStaffMessage(AsyncPlayerChatEvent e) {
         if(!e.getPlayer().hasPermission("staff.chat")) return;
-        if(!Core.staff.contains(e.getPlayer().getUniqueId())) {
-            Core.staff.put(e.getPlayer().getUniqueId(), new StaffManager(e.getPlayer(),false));
-            return;
-        }
         if(!Core.staff.get(e.getPlayer().getUniqueId()).isStaffChat()) {
             return;
         }

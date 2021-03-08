@@ -41,6 +41,8 @@ public final class Core extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PingServerEvent(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerLeave(), this);
         Bukkit.getPluginManager().registerEvents(new MobKillEvent(), this);
+        Bukkit.getPluginManager().registerEvents(new CommandSpyListener(), this);
+        Bukkit.getPluginManager().registerEvents(new MessageSpyListener(), this);
         Bukkit.getLogger().info("Deagan's Core Loaded");
     }
     @Override

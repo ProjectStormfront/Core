@@ -23,19 +23,19 @@ public class PlayerJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {
         if(e.getPlayer().isBanned()) return;
         if(e.getPlayer().isOp()) {
-            Core.staff.put(e.getPlayer().getUniqueId(), new StaffManager(e.getPlayer(), false));
+            Core.staff.put(e.getPlayer().getUniqueId(), new StaffManager(e.getPlayer(), false, false, false));
         }
         e.getPlayer().setPlayerListName(ChatColor.translateAlternateColorCodes('&', api.getPlayerAdapter(Player.class).getMetaData(e.getPlayer()).getPrefix() + e.getPlayer().getName()));
         if(!Core.getPlugin(Core.class).getCustomConfig().contains(e.getPlayer().getUniqueId().toString())) {
-            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 100));
+            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null));
             setScoreBoard(e.getPlayer());
             return;
         }
         try {
-            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Level"), Core.getPlugin(Core.class).getCustomConfig().getDouble(e.getPlayer().getUniqueId().toString() + ".Exp"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".ExpToLevel"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Money")));
+            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Level"), Core.getPlugin(Core.class).getCustomConfig().getDouble(e.getPlayer().getUniqueId().toString() + ".Exp"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".ExpToLevel"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Money"), null));
             setScoreBoard(e.getPlayer());
         } catch (NullPointerException ex) {
-            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 100));
+            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null));
             setScoreBoard(e.getPlayer());
         }
     }

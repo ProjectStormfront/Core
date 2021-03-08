@@ -27,6 +27,10 @@ public class HelpCommand extends CommandHandler {
                         ChatColor.RED + "/namemc - " + ChatColor.GRAY + "Verify that you liked the server on NameMC" + "\n" +
                         ChatColor.RED + "/level - " + ChatColor.GRAY + "Check your level." + "\n" +
                         ChatColor.RED + "/ban - " + ChatColor.GRAY + "Ban a player with a reason." + "\n" +
+                        ChatColor.RED + "/cmdspy - " + ChatColor.GRAY + "Spy on people's commands." + "\n" +
+                        ChatColor.RED + "/msgspy - " + ChatColor.GRAY + "Spy on people's messages." + "\n" +
+                        ChatColor.RED + "/top - " + ChatColor.GRAY + "Teleport to the highest solid block above you." + "\n" +
+                        ChatColor.RED + "/invsee - " + ChatColor.GRAY + "See someone's inventory." + "\n" +
                         ChatColor.translateAlternateColorCodes('&', "&c&m-------------------")
         );
     }
