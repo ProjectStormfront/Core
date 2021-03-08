@@ -11,6 +11,7 @@ import org.bukkit.event.entity.EntityDeathEvent;
 public class MobKillEvent implements Listener {
     @EventHandler
     public void onMobKill(EntityDeathEvent e) {
+        //TODO: Fix bug throwing NPE's
         if (e.getEntity() instanceof Player) return;
         if(!e.getEntity().isCustomNameVisible()) return;
         PlayerManager playerManager = Core.players.get(e.getEntity().getKiller().getUniqueId());
