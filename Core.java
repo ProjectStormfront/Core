@@ -45,6 +45,17 @@ public final class Core extends JavaPlugin {
     }
     @Override
     public void onDisable() {
+        players.forEach((uuid, playerManager) -> {
+            getCustomConfig().set(uuid + ".Level", playerManager.getLevel());
+            getCustomConfig().set(uuid + ".Exp", playerManager.getExp());
+            getCustomConfig().set(uuid + ".ExpToLevel", playerManager.getExpToLevel());
+            getCustomConfig().set(uuid + ".Money", playerManager.getMoney());
+        });
+        try {
+            getCustomConfig().save(new File(getDataFolder(), "playerdata.yml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         plugin = null;
         Bukkit.getLogger().info("Deagan's Core Unloaded");
     }

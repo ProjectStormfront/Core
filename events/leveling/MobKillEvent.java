@@ -12,6 +12,7 @@ public class MobKillEvent implements Listener {
     @EventHandler
     public void onMobKill(EntityDeathEvent e) {
         if (e.getEntity() instanceof Player) return;
+        if(!e.getEntity().isCustomNameVisible()) return;
         PlayerManager playerManager = Core.players.get(e.getEntity().getKiller().getUniqueId());
         if (e.getEntity().getCustomName().equalsIgnoreCase(ChatColor.RED + "Goblin")) {
             playerManager.setExp(playerManager.getExp() + 1);
