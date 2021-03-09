@@ -27,15 +27,15 @@ public class PlayerJoin implements Listener {
         }
         e.getPlayer().setPlayerListName(ChatColor.translateAlternateColorCodes('&', api.getPlayerAdapter(Player.class).getMetaData(e.getPlayer()).getPrefix() + e.getPlayer().getName()));
         if(!Core.getPlugin(Core.class).getCustomConfig().contains(e.getPlayer().getUniqueId().toString())) {
-            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null));
+            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null, true));
             setScoreBoard(e.getPlayer());
             return;
         }
         try {
-            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Level"), Core.getPlugin(Core.class).getCustomConfig().getDouble(e.getPlayer().getUniqueId().toString() + ".Exp"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".ExpToLevel"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Money"), null));
+            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Level"), Core.getPlugin(Core.class).getCustomConfig().getDouble(e.getPlayer().getUniqueId().toString() + ".Exp"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".ExpToLevel"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Money"), null, Core.getPlugin(Core.class).getCustomConfig().getBoolean(e.getPlayer().getUniqueId().toString() + ".ScoreboardVisibility")));
             setScoreBoard(e.getPlayer());
         } catch (NullPointerException ex) {
-            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null));
+            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null, false));
             setScoreBoard(e.getPlayer());
         }
     }
@@ -52,9 +52,9 @@ public class PlayerJoin implements Listener {
         final CScoreboard.Row row4 = scoreboard.addRow("3");
         scoreboard.finish();
         scoreboard.display(player);
-        new BukkitRunnable(){
-            public void run(){
-                if(player.isOnline()) {
+        new BukkitRunnable() {
+            public void run() {
+                if (player.isOnline() && Core.players.get(player.getUniqueId()).isScoreboardVisibility()) {
                     scoreboard.setTitle(ChatColor.RED + "Stormfront");
                     row.setMessage(player.getName());
                     row2.setMessage(Core.players.get(player.getUniqueId()).getLevel() + "");

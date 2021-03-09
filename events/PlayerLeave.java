@@ -23,6 +23,7 @@ public class PlayerLeave implements Listener {
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Exp", playerManager.getExp());
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".ExpToLevel", playerManager.getExpToLevel());
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Money", playerManager.getMoney());
+            Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".ScoreboardVisibility", playerManager.isScoreboardVisibility());
             Core.getPlugin(Core.class).getCustomConfig().save(new File(Core.getPlugin(Core.class).getDataFolder(), "playerdata.yml"));
         } catch (NullPointerException ignore) {}
         Core.players.remove(e.getPlayer().getUniqueId());

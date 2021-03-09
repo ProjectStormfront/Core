@@ -31,7 +31,7 @@ public final class Core extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        new GrantListener(this, LuckPermsProvider.get());
+        //new GrantListener(this, LuckPermsProvider.get());
         createCustomConfig();
         chat = new Chat(this);
         CommandHandler.registerCommands(this);
@@ -52,6 +52,7 @@ public final class Core extends JavaPlugin {
             getCustomConfig().set(uuid + ".Exp", playerManager.getExp());
             getCustomConfig().set(uuid + ".ExpToLevel", playerManager.getExpToLevel());
             getCustomConfig().set(uuid + ".Money", playerManager.getMoney());
+            getCustomConfig().set(uuid + ".ScoreboardVisibility", playerManager.isScoreboardVisibility());
         });
         try {
             getCustomConfig().save(new File(getDataFolder(), "playerdata.yml"));

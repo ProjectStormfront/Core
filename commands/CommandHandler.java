@@ -54,6 +54,7 @@ public abstract class CommandHandler implements CommandExecutor {
         new MessageSpyCommand();
         new MessageCommand();
         new ReplyCommand();
+        new SettingsCommand();
     }
 
     @Override
