@@ -35,12 +35,16 @@ public class PlayerJoin implements Listener {
             Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Level"), Core.getPlugin(Core.class).getCustomConfig().getDouble(e.getPlayer().getUniqueId().toString() + ".Exp"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".ExpToLevel"), Core.getPlugin(Core.class).getCustomConfig().getInt(e.getPlayer().getUniqueId().toString() + ".Money"), null, Core.getPlugin(Core.class).getCustomConfig().getBoolean(e.getPlayer().getUniqueId().toString() + ".ScoreboardVisibility")));
             setScoreBoard(e.getPlayer());
         } catch (NullPointerException ex) {
-            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null, false));
+            Core.players.put(e.getPlayer().getUniqueId(), new PlayerManager(e.getPlayer(), 1, 0, 10, 10, null, true));
             setScoreBoard(e.getPlayer());
         }
+        setScoreBoard(e.getPlayer());
     }
 
     public void setScoreBoard(Player player) {
+        if(!Core.players.get(player.getUniqueId()).isScoreboardVisibility()) {
+            return;
+        }
         final CScoreboard scoreboard = new CScoreboard("Stormfront", "d", ChatColor.RED + "Stormfront");
         scoreboard.addRow(ChatColor.RED + "Name ➤");
         final CScoreboard.Row row = scoreboard.addRow("0");
@@ -54,7 +58,7 @@ public class PlayerJoin implements Listener {
         scoreboard.display(player);
         new BukkitRunnable() {
             public void run() {
-                if (player.isOnline() && Core.players.get(player.getUniqueId()).isScoreboardVisibility()) {
+                if (player.isOnline()) {
                     scoreboard.setTitle(ChatColor.RED + "Stormfront");
                     row.setMessage(player.getName());
                     row2.setMessage(Core.players.get(player.getUniqueId()).getLevel() + "");
