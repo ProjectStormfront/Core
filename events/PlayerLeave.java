@@ -18,7 +18,14 @@ public class PlayerLeave implements Listener {
             Core.staff.remove(e.getPlayer().getUniqueId());
         }
         PlayerManager playerManager = Core.players.get(e.getPlayer().getUniqueId());
+        StaffManager staffManager = Core.staff.get(e.getPlayer().getUniqueId());
         try {
+            if(Core.staff.contains(e.getPlayer().getUniqueId())) {
+                Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".StaffChat", staffManager.isStaffChat());
+                Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".BreakBlocks", staffManager.isBreakBlocks());
+                Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".MessageSpy", staffManager.isMessageSpy());
+                Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".CommandSpy", staffManager.isCommandSpy());
+            }
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Level", playerManager.getLevel());
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Exp", playerManager.getExp());
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".ExpToLevel", playerManager.getExpToLevel());

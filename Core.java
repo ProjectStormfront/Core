@@ -43,6 +43,7 @@ public final class Core extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new MobKillEvent(), this);
         Bukkit.getPluginManager().registerEvents(new CommandSpyListener(), this);
         Bukkit.getPluginManager().registerEvents(new MessageSpyListener(), this);
+        Bukkit.getPluginManager().registerEvents(new BreakBlockListener(), this);
         Bukkit.getLogger().info("Deagan's Core Loaded");
     }
     @Override
@@ -53,6 +54,12 @@ public final class Core extends JavaPlugin {
             getCustomConfig().set(uuid + ".ExpToLevel", playerManager.getExpToLevel());
             getCustomConfig().set(uuid + ".Money", playerManager.getMoney());
             getCustomConfig().set(uuid + ".ScoreboardVisibility", playerManager.isScoreboardVisibility());
+        });
+        staff.forEach((uuid, staffManager) -> {
+            getCustomConfig().set(uuid + ".BreakBlocks", staffManager.isBreakBlocks());
+            getCustomConfig().set(uuid + ".MessageSpy", staffManager.isMessageSpy());
+            getCustomConfig().set(uuid + ".CommandSpy", staffManager.isCommandSpy());
+            getCustomConfig().set(uuid + ".StaffChat", staffManager.isStaffChat());
         });
         try {
             getCustomConfig().save(new File(getDataFolder(), "playerdata.yml"));

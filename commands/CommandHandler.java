@@ -3,6 +3,10 @@ package core.deagan.core.commands;
 import core.deagan.core.Core;
 import core.deagan.core.commands.general.*;
 import core.deagan.core.commands.staff.*;
+import core.deagan.core.commands.staff.gamemode.GamemodeAdventureCommand;
+import core.deagan.core.commands.staff.gamemode.GamemodeCreativeCommand;
+import core.deagan.core.commands.staff.gamemode.GamemodeSpectatorCommand;
+import core.deagan.core.commands.staff.gamemode.GamemodeSurvivalCommand;
 import core.deagan.core.commands.staff.troll.RotateHeadCommand;
 import core.deagan.core.commands.staff.troll.SudoCommand;
 import org.bukkit.ChatColor;
@@ -55,6 +59,11 @@ public abstract class CommandHandler implements CommandExecutor {
         new MessageCommand();
         new ReplyCommand();
         new SettingsCommand();
+        new GamemodeSurvivalCommand();
+        new GamemodeCreativeCommand();
+        new GamemodeAdventureCommand();
+        new GamemodeSpectatorCommand();
+        new BreakBlocksCommand();
     }
 
     @Override

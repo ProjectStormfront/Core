@@ -13,10 +13,12 @@ public class StaffManager {
     private boolean isStaffChat;
     private boolean isCommandSpy;
     private boolean isMessageSpy;
-    public StaffManager(Player player, boolean isStaffChat, boolean isCommandSpy, boolean isMessageSpy) {
+    private boolean isBreakBlocks;
+    public StaffManager(Player player, boolean isStaffChat, boolean isCommandSpy, boolean isMessageSpy, boolean isBreakBlocks) {
         this.player = player;
         this.isStaffChat = isStaffChat;
         this.isCommandSpy = isCommandSpy;
         this.isMessageSpy = isMessageSpy;
+        this.isBreakBlocks = isBreakBlocks;
     }
 }

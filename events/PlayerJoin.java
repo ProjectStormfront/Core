@@ -23,7 +23,7 @@ public class PlayerJoin implements Listener {
     public void onPlayerJoin(PlayerJoinEvent e) {
         if(e.getPlayer().isBanned()) return;
         if(e.getPlayer().isOp()) {
-            Core.staff.put(e.getPlayer().getUniqueId(), new StaffManager(e.getPlayer(), false, false, false));
+            Core.staff.put(e.getPlayer().getUniqueId(), new StaffManager(e.getPlayer(), Core.getPlugin(Core.class).getCustomConfig().getBoolean(e.getPlayer().getUniqueId() + ".StaffChat"), Core.getPlugin(Core.class).getCustomConfig().getBoolean(e.getPlayer().getUniqueId() + ".CommandSpy"), Core.getPlugin(Core.class).getCustomConfig().getBoolean(e.getPlayer().getUniqueId() + ".MessageSpy"), Core.getPlugin(Core.class).getCustomConfig().getBoolean(e.getPlayer().getUniqueId() + ".BreakBlocks")));
         }
         e.getPlayer().setPlayerListName(ChatColor.translateAlternateColorCodes('&', api.getPlayerAdapter(Player.class).getMetaData(e.getPlayer()).getPrefix() + e.getPlayer().getName()));
         if(!Core.getPlugin(Core.class).getCustomConfig().contains(e.getPlayer().getUniqueId().toString())) {
