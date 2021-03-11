@@ -15,9 +15,9 @@ public class PlayerLeave implements Listener {
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent e) throws IOException {
         PlayerManager playerManager = Core.players.get(e.getPlayer().getUniqueId());
-        StaffManager staffManager = Core.staff.get(e.getPlayer().getUniqueId());
         try {
-            if(Core.staff.contains(e.getPlayer().getUniqueId())) {
+            if(e.getPlayer().hasPermission("staff.staff")) {
+                StaffManager staffManager = Core.staff.get(e.getPlayer().getUniqueId());
                 Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".StaffChat", staffManager.isStaffChat());
                 Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".BreakBlocks", staffManager.isBreakBlocks());
                 Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".MessageSpy", staffManager.isMessageSpy());
@@ -31,7 +31,6 @@ public class PlayerLeave implements Listener {
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Money", playerManager.getMoney());
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".ScoreboardVisibility", playerManager.isScoreboardVisibility());
             Core.getPlugin(Core.class).getCustomConfig().save(new File(Core.getPlugin(Core.class).getDataFolder(), "playerdata.yml"));
-
         } catch (NullPointerException ignore) {}
         Core.players.remove(e.getPlayer().getUniqueId());
         e.getPlayer().setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
