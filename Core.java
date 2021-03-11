@@ -6,10 +6,8 @@ import core.deagan.core.chat.ChatFormatting;
 import core.deagan.core.events.*;
 import core.deagan.core.events.leveling.MobKillEvent;
 import core.deagan.core.managers.PlayerManager;
-import core.deagan.core.managers.ServerManager;
 import core.deagan.core.managers.StaffManager;
 import lombok.Getter;
-import net.luckperms.api.LuckPermsProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -26,7 +24,6 @@ public final class Core extends JavaPlugin {
     private static Core plugin;
     public static ConcurrentHashMap<UUID, StaffManager> staff = new ConcurrentHashMap<>();
     public static ConcurrentHashMap<UUID, PlayerManager> players = new ConcurrentHashMap<>();
-    public static ConcurrentHashMap<Integer, ServerManager> server = new ConcurrentHashMap<>();
     private Chat chat;
     private File playerFile;
     private FileConfiguration playerConfig;
@@ -34,7 +31,6 @@ public final class Core extends JavaPlugin {
     public void onEnable() {
         plugin = this;
         createCustomConfig();
-        server.put(1, new ServerManager(getCustomConfig().getString("Server.MOTD")));
         chat = new Chat(this);
         CommandHandler.registerCommands(this);
         Bukkit.getPluginManager().registerEvents(new ChatFormatting(), this);
