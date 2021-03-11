@@ -15,10 +15,10 @@ public class CoreAPI {
     public static void setExp(Player player, int exp) {
         Core.getPlugin(Core.class).getCustomConfig().set(player.getUniqueId().toString() + ".Exp", exp);
     }
-    public int getMoney(Player player) {
+    public static int getMoney(Player player) {
         return Core.getPlugin(Core.class).getCustomConfig().getInt(player.getUniqueId().toString() + ".Money");
     }
-    public void setMoney(Player player, int money) {
+    public static void setMoney(Player player, int money) {
         Core.getPlugin(Core.class).getCustomConfig().set(player.getUniqueId().toString() + ".Money", money);
     }
 

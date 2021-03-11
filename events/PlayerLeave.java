@@ -14,9 +14,6 @@ import java.io.IOException;
 public class PlayerLeave implements Listener {
     @EventHandler
     public void onPlayerLeave(PlayerQuitEvent e) throws IOException {
-        if(e.getPlayer().isOp()) {
-            Core.staff.remove(e.getPlayer().getUniqueId());
-        }
         PlayerManager playerManager = Core.players.get(e.getPlayer().getUniqueId());
         StaffManager staffManager = Core.staff.get(e.getPlayer().getUniqueId());
         try {
@@ -25,6 +22,8 @@ public class PlayerLeave implements Listener {
                 Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".BreakBlocks", staffManager.isBreakBlocks());
                 Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".MessageSpy", staffManager.isMessageSpy());
                 Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".CommandSpy", staffManager.isCommandSpy());
+                Core.getPlugin(Core.class).getCustomConfig().save(new File(Core.getPlugin(Core.class).getDataFolder(), "playerdata.yml"));
+                Core.staff.remove(e.getPlayer().getUniqueId());
             }
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Level", playerManager.getLevel());
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Exp", playerManager.getExp());
@@ -32,6 +31,7 @@ public class PlayerLeave implements Listener {
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".Money", playerManager.getMoney());
             Core.getPlugin(Core.class).getCustomConfig().set(e.getPlayer().getUniqueId() + ".ScoreboardVisibility", playerManager.isScoreboardVisibility());
             Core.getPlugin(Core.class).getCustomConfig().save(new File(Core.getPlugin(Core.class).getDataFolder(), "playerdata.yml"));
+
         } catch (NullPointerException ignore) {}
         Core.players.remove(e.getPlayer().getUniqueId());
         e.getPlayer().setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());

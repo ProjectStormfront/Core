@@ -12,7 +12,7 @@ public class PingServerEvent implements Listener {
     @EventHandler
     public void onServerPing(ServerListPingEvent e) {
         e.setMotd(
-                ChatColor.translateAlternateColorCodes('&', Core.getPlugin(Core.class).getConfig().getString("Server.MOTD"))
+                ChatColor.translateAlternateColorCodes('&', Core.server.get(1).getMotd())
         );
     }
 }
