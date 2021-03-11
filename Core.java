@@ -33,7 +33,6 @@ public final class Core extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
-        //new GrantListener(this, LuckPermsProvider.get());
         createCustomConfig();
         server.put(1, new ServerManager(getCustomConfig().getString("Server.MOTD")));
         chat = new Chat(this);
